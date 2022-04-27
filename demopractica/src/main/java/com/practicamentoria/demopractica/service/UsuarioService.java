@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -21,10 +22,12 @@ public class UsuarioService {
     }
 
     public Usuario guardarUsuario(Usuario usuario) {
+
         return usuarioRepository.save(usuario);
     }
 
     public Optional<Usuario> obtenerPorId(Long id) {
+
         return usuarioRepository.findById(id);
     }
 
@@ -42,13 +45,8 @@ public class UsuarioService {
         }
     }
 
+    public Usuario actualizarUsuario(Usuario usuario){
+        return usuarioRepository.save(usuario);
 
-    public Usuario upgrade(Usuario todo) {
-        Optional<Usuario> td = usuarioRepository.findById(todo.getId());
-        if (td.isEmpty()) {
-            System.out.println("La persona con el id: " + todo.getId() + "No existe");
-        }
-
-        return todo;
     }
 }
