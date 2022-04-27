@@ -15,6 +15,7 @@ public class UsuarioRol {
     @Column(unique = true,nullable = false)
     private long idRol;
     private String rol;
+
     private long idUsuario;
 
     public UsuarioRol() {

@@ -10,5 +10,4 @@ import java.util.ArrayList;
 public interface IUsuarioRepositorie extends CrudRepository<Usuario,Long> {
     public abstract ArrayList<Usuario> prioridad(Integer prioridad);
 
-
 }

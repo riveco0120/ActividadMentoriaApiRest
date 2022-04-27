@@ -34,7 +34,7 @@ class UsuarioServiceTest {
     public void testBuscarUsuarioPorId(){
         Long idBuscado=1L;
         Optional<Usuario> usuarioModelBuscado=usuarioRepository.findById(idBuscado);
-        assertThat(usuarioModelBuscado.get().getId()).isEqualTo(idBuscado);
+        assertThat(usuarioModelBuscado.get().getIdUsuario()).isEqualTo(idBuscado);
     }
 
     @Test
