@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface IUsuarioRepositorie extends CrudRepository<Usuario,Long> {
+public interface IUsuarioRepository extends CrudRepository<Usuario,Long> {
     public abstract ArrayList<Usuario> prioridad(Integer prioridad);
 
 }

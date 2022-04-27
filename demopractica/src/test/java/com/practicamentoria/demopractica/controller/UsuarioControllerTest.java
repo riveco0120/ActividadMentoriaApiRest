@@ -1,6 +1,6 @@
 package com.practicamentoria.demopractica.controller;
 
-import com.practicamentoria.demopractica.repositorie.IUsuarioRepositorie;
+import com.practicamentoria.demopractica.repositorie.IUsuarioRepository;
 import com.practicamentoria.demopractica.service.UsuarioService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 class UsuarioControllerTest {
 
     @MockBean
-    IUsuarioRepositorie usuarioRepository;
+    IUsuarioRepository usuarioRepository;
 
     @Autowired
     UsuarioService usuarioService;

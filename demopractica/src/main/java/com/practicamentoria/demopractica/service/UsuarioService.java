@@ -2,19 +2,18 @@ package com.practicamentoria.demopractica.service;
 
 
 import com.practicamentoria.demopractica.models.Usuario;
-import com.practicamentoria.demopractica.repositorie.IUsuarioRepositorie;
+import com.practicamentoria.demopractica.repositorie.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
 public class UsuarioService {
 
     @Autowired
-    IUsuarioRepositorie usuarioRepository;
+    IUsuarioRepository usuarioRepository;
 
 
     public ArrayList<Usuario> obtenerUsuarios() {

@@ -1,8 +1,7 @@
 package com.practicamentoria.demopractica.service;
 
 import com.practicamentoria.demopractica.models.Usuario;
-import com.practicamentoria.demopractica.repositorie.IUsuarioRepositorie;
-import jdk.jfr.Name;
+import com.practicamentoria.demopractica.repositorie.IUsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -14,15 +13,12 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-import static  org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
-
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 class UsuarioServiceTest {
 
     @Autowired
-    IUsuarioRepositorie usuarioRepository;
+    IUsuarioRepository usuarioRepository;
     @Test
     public void testGuardarUsuario(){
         Usuario usuarioModel=new Usuario("aquaman","aqua@gmail.com",99);

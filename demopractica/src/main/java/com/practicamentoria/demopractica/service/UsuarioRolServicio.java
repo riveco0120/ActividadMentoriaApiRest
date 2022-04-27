@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class UsuarioRolServicios {
+public class UsuarioRolServicio {
 
     @Autowired
     IUsuarioRolRepository iUsuarioRolRepository;
