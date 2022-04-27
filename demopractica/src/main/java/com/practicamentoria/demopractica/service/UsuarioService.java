@@ -14,28 +14,41 @@ public class UsuarioService {
 
     @Autowired
     IUsuarioRepositorie usuarioRepository;
-    public ArrayList<Usuario> obtenerUsuarios(){
+
+
+    public ArrayList<Usuario> obtenerUsuarios() {
         return (ArrayList<Usuario>) usuarioRepository.findAll();
     }
 
-    public Usuario guardarUsuario(Usuario usuario){
+    public Usuario guardarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
-    public Optional<Usuario> obtenerPorId(Long id){
+    public Optional<Usuario> obtenerPorId(Long id) {
         return usuarioRepository.findById(id);
     }
 
-    public ArrayList<Usuario> obtenerPorPrioridad(Integer p){
+    public ArrayList<Usuario> obtenerPorPrioridad(Integer p) {
         return usuarioRepository.prioridad(p);
     }
 
-    public boolean eliminarUsuario(Long id){
-        try{
+
+    public boolean eliminarUsuario(Long id) {
+        try {
             usuarioRepository.deleteById(id);
             return true;
-        }catch (Exception e){
-            return  false;
+        } catch (Exception e) {
+            return false;
         }
+    }
+
+
+    public Usuario upgrade(Usuario todo) {
+        Optional<Usuario> td = usuarioRepository.findById(todo.getId());
+        if (td.isEmpty()) {
+            System.out.println("La persona con el id: " + todo.getId() + "No existe");
+        }
+
+        return todo;
     }
 }
