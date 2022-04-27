@@ -16,7 +16,9 @@ public class UsuarioRol {
     private long idRol;
     private String rol;
 
-    private long idUsuario;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "idUsuario")
+    private Usuario role;
 
     public UsuarioRol() {
     }
