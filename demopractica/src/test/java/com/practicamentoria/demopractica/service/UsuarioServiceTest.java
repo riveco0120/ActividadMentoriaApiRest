@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,15 @@ class UsuarioServiceTest {
         Long idBuscado=1L;
         Optional<Usuario> usuarioModelBuscado=usuarioRepository.findById(idBuscado);
         assertThat(usuarioModelBuscado.get().getIdUsuario()).isEqualTo(idBuscado);
+    }
+
+    @Test
+    @Name("Obtener por prioridad")
+    void testObtenerPrioridad(){
+        int prioridad=1;
+        ArrayList<Usuario> usuarioList = usuarioRepository.prioridad(prioridad);
+        assertNotNull(usuarioList);
+
     }
 
     @Test
