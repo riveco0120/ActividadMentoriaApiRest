@@ -33,9 +33,5 @@ public class UsuarioRol{
     public UsuarioRol(String rol) {
         this.rol = rol;
     }
-
-    public UsuarioRol(String rol, Usuario usuario) {
-        this.rol = rol;
-        this.usuario = usuario;
-    }
+    
 }
