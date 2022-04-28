@@ -1,6 +1,6 @@
 package com.practicamentoria.demopractica.service;
 
-import com.practicamentoria.demopractica.models.Usuario;
+import com.practicamentoria.demopractica.models.UsuarioRol;
 import com.practicamentoria.demopractica.repositorie.IUsuarioRolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,17 +14,16 @@ public class UsuarioRolServicio {
     @Autowired
     IUsuarioRolRepository iUsuarioRolRepository;
 
-
-    public ArrayList<Usuario> obtenerUsuariosRol() {
-        return (ArrayList<Usuario>)   iUsuarioRolRepository.findAll();
+    public ArrayList<UsuarioRol> obtenerUsuariosRol() {
+        return (ArrayList<UsuarioRol>) iUsuarioRolRepository.findAll();
     }
 
-    public Usuario guardarUsuarioRol(Usuario usuario) {
+    public UsuarioRol guardarUsuarioRol(UsuarioRol usuarioRol) {
 
-        return iUsuarioRolRepository.save(usuario);
+        return iUsuarioRolRepository.save(usuarioRol);
     }
 
-    public Optional<Usuario> obtenerPorIdRol(Long id) {
+    public Optional<UsuarioRol> obtenerPorIdRol(Long id) {
 
         return iUsuarioRolRepository.findById(id);
     }
@@ -39,8 +38,8 @@ public class UsuarioRolServicio {
         }
     }
 
-    public Usuario actualizarUsuarioRol(Usuario usuario){
-        return  iUsuarioRolRepository.save(usuario);
+    public UsuarioRol actualizarUsuarioRol(UsuarioRol usuarioRol){
+        return  iUsuarioRolRepository.save(usuarioRol);
 
     }
 

@@ -1,6 +1,6 @@
 package com.practicamentoria.demopractica.controller;
 
-import com.practicamentoria.demopractica.models.Usuario;
+import com.practicamentoria.demopractica.models.UsuarioRol;
 import com.practicamentoria.demopractica.service.UsuarioRolServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +15,17 @@ public class UsuarioRolController {
     UsuarioRolServicio usuarioRolService;
 
     @GetMapping()
-    public ArrayList<Usuario> obtenerUsuario(){
+    public ArrayList<UsuarioRol> obtenerUsuario(){
         return usuarioRolService.obtenerUsuariosRol();
     }
 
     @PostMapping()
-    public Usuario guardar(@RequestBody Usuario usuario){
-        return usuarioRolService.guardarUsuarioRol(usuario);
+    public UsuarioRol guardar(@RequestBody UsuarioRol usuarioRol){
+        return usuarioRolService.guardarUsuarioRol(usuarioRol) ;
     }
 
     @GetMapping(path = "/get/{id}/")
-    public Optional<Usuario> obtenerUsuarioPorId(@PathVariable("id") Long id){
+    public Optional<UsuarioRol> obtenerUsuarioPorId(@PathVariable("id") Long id){
         return this.usuarioRolService.obtenerPorIdRol(id);
     }
 
@@ -41,8 +41,8 @@ public class UsuarioRolController {
     }
 
     @PutMapping(value = "/actualizar/")
-    public Usuario actualizarUsuario(@RequestBody Usuario usuario) {
-        return usuarioRolService.actualizarUsuarioRol(usuario);
+    public UsuarioRol actualizarUsuario(@RequestBody UsuarioRol usuarioRol) {
+        return usuarioRolService.actualizarUsuarioRol(usuarioRol);
     }
 
 }

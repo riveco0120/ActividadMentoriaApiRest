@@ -18,7 +18,10 @@ public class UsuarioRol implements Serializable {
     private long idRol;
     private String rol;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Usuario.class, optional = false)
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            targetEntity = Usuario.class,
+            optional = false)
     @JoinColumn(name = "usuarioID", nullable = false)
     @JsonBackReference
     private Usuario usuario;
