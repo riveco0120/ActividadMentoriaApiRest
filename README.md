@@ -48,3 +48,10 @@ RELACIONES ENTRE ENTIDADES
 
 ![image](https://user-images.githubusercontent.com/103125129/165662916-c3275522-54d7-4d1f-b87a-9e0816b25ab0.png)
 
+Se agrega esta relacion de uno a mucho ya que como lo dice el enunciando un usuario puede constar con mas de un rol. 
+
+se utilizo la relacion @OneToMany de manera unidirecional @JsonBackReference mostrando una relacion padre hijo. de igual forma se utilizo la anotacion @JoinColumn para hacer referencia a la tabla en la base de dato. en nuestro caso se usa en la entidad usuario ya que esta seria como la entidad padre. 
+
+para el caso del la entidad usuarioRol utilizamos @ManyToOne ya que muchos rol pueden estar contenidos en un usuario
+
+
