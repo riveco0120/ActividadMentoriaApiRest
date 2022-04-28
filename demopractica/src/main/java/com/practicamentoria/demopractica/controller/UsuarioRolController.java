@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/rol")
 public class UsuarioRolController {
@@ -20,8 +21,8 @@ public class UsuarioRolController {
     }
 
     @PostMapping()
-    public UsuarioRol guardar(@RequestBody UsuarioRol usuarioRol){
-        return usuarioRolService.guardarUsuarioRol(usuarioRol) ;
+    public UsuarioRol guardar(@RequestBody UsuarioRol rol){
+        return usuarioRolService.guardarUsuarioRol(rol) ;
     }
 
     @GetMapping(path = "/get/{id}/")

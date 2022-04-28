@@ -18,11 +18,13 @@ public class UsuarioController {
 
     @GetMapping()
     public ArrayList<Usuario> obtenerUsuario(){
+
         return usuarioService.obtenerUsuarios();
     }
 
     @PostMapping()
     public Usuario guardar(@RequestBody Usuario usuario){
+
         return usuarioService.guardarUsuario(usuario);
     }
 

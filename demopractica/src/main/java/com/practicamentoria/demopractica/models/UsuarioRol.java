@@ -11,11 +11,12 @@ import java.io.Serializable;
 @Getter
 @Entity
 @Table(name = "roles")
-public class UsuarioRol implements Serializable {
+public class UsuarioRol{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
     private long idRol;
+
     private String rol;
 
     @ManyToOne(

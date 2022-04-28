@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name="usuario")
-public class Usuario implements Serializable {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
@@ -24,7 +23,6 @@ public class Usuario implements Serializable {
 
     private Integer prioridad;
 
-    private long usuarioRolId;
 
 
     @OneToMany(
