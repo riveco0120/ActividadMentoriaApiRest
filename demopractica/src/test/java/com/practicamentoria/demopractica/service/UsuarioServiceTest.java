@@ -15,6 +15,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 class UsuarioServiceTest {
@@ -46,28 +47,35 @@ class UsuarioServiceTest {
     }
 
     @Test
-    @Name("Test para eliminar usuario")
-    void testEliminarUsuario(){
-
-
-    }
-
-    @Test
     @Name("Test para actualizar")
-    @Rollback
+    @Rollback(false)
     void testActualizarUsuario(){
         Long idUsuario=1L;
         String nombre ="Richard Vellojin coneo";//Nuevo nombre
         String email ="richardvellojin@correo.com";//Nuevo correo
         int prioridad=2;
         Usuario usuarioUno = new Usuario(nombre,email,prioridad);//valores nuevos
-        Usuario usuarioGurado= usuarioRepository.save(usuarioUno);
         usuarioUno.setIdUsuario(idUsuario);//Agregando valor id
-
         usuarioRepository.save(usuarioUno);//Agregando usuario
 
         Optional<Usuario> usuarioActualizado = usuarioRepository.findById(idUsuario);
         assertThat(usuarioActualizado.get().getNombre()).isEqualTo(nombre);
+
+    }
+
+
+    @Test
+    @Name("Test para eliminar usuario")
+    @Rollback(false)
+    void testEliminarUsuario(){
+        Long idUsuario=1L;//ID del usuario a eliminar
+        //Verificando si existe el usuario con ese id
+        boolean eliminarExistente= usuarioRepository.findById(idUsuario).isPresent();
+        usuarioRepository.deleteById(idUsuario);//pasando al repositorio el id del usuario a eliminar
+        //Verificando que no existe depues de eliminar
+        boolean noExisteDespuesDeEliminar= usuarioRepository.findById(idUsuario).isPresent();
+        assertTrue(eliminarExistente);
+        assertFalse(noExisteDespuesDeEliminar);
 
     }
 
