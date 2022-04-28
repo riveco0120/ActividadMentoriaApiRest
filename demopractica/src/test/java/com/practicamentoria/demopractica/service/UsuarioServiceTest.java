@@ -2,10 +2,12 @@ package com.practicamentoria.demopractica.service;
 
 import com.practicamentoria.demopractica.models.Usuario;
 import com.practicamentoria.demopractica.repositorie.IUsuarioRepository;
+import jdk.jfr.Name;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +21,9 @@ class UsuarioServiceTest {
 
     @Autowired
     IUsuarioRepository usuarioRepository;
+
     @Test
+    @Name("Test para guardar usuario")
     public void testGuardarUsuario(){
         Usuario usuarioModel=new Usuario("aquaman","aqua@gmail.com",99);
         Usuario usuarioModelRegistrado = usuarioRepository.save(usuarioModel);
@@ -27,6 +31,7 @@ class UsuarioServiceTest {
     }
 
     @Test
+    @Name("Test para buscar por id")
     public void testBuscarUsuarioPorId(){
         Long idBuscado=1L;
         Optional<Usuario> usuarioModelBuscado=usuarioRepository.findById(idBuscado);
@@ -34,12 +39,35 @@ class UsuarioServiceTest {
     }
 
     @Test
+    @Name("Test para listar todos")
     public void testListarUsuarios(){
         List<Usuario> usuarioModelList=(List<Usuario>) usuarioRepository.findAll();
         assertThat(usuarioModelList).size().isGreaterThan(0);
     }
 
-    @Test void testObtenerPrioridad(){
+    @Test
+    @Name("Test para eliminar usuario")
+    void testEliminarUsuario(){
+
+
+    }
+
+    @Test
+    @Name("Test para actualizar")
+    @Rollback
+    void testActualizarUsuario(){
+        Long idUsuario=1L;
+        String nombre ="Richard Vellojin coneo";//Nuevo nombre
+        String email ="richardvellojin@correo.com";//Nuevo correo
+        int prioridad=2;
+        Usuario usuarioUno = new Usuario(nombre,email,prioridad);//valores nuevos
+        Usuario usuarioGurado= usuarioRepository.save(usuarioUno);
+        usuarioUno.setIdUsuario(idUsuario);//Agregando valor id
+
+        usuarioRepository.save(usuarioUno);//Agregando usuario
+
+        Optional<Usuario> usuarioActualizado = usuarioRepository.findById(idUsuario);
+        assertThat(usuarioActualizado.get().getNombre()).isEqualTo(nombre);
 
     }
 
