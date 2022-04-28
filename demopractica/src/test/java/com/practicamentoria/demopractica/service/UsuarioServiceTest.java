@@ -38,4 +38,9 @@ class UsuarioServiceTest {
         List<Usuario> usuarioModelList=(List<Usuario>) usuarioRepository.findAll();
         assertThat(usuarioModelList).size().isGreaterThan(0);
     }
+
+    @Test void testObtenerPrioridad(){
+
+    }
+    
 }
