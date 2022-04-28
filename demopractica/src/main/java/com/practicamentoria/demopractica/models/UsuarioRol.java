@@ -26,10 +26,16 @@ public class UsuarioRol{
     @JoinColumn(name = "usuarioID", nullable = false)
     @JsonBackReference
     private Usuario usuario;
+
     public UsuarioRol() {
     }
 
     public UsuarioRol(String rol) {
         this.rol = rol;
+    }
+
+    public UsuarioRol(String rol, Usuario usuario) {
+        this.rol = rol;
+        this.usuario = usuario;
     }
 }

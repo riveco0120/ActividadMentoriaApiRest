@@ -77,12 +77,10 @@ class UsuarioServiceTest {
     @Test
     @Name("Test para eliminar usuario")
     @Rollback(false)
-    void testEliminarUsuario(){
+    public void testEliminarUsuario(){
         Long idUsuario=1L;//ID del usuario a eliminar
-        //Verificando si existe el usuario con ese id
         boolean eliminarExistente= usuarioRepository.findById(idUsuario).isPresent();
         usuarioRepository.deleteById(idUsuario);//pasando al repositorio el id del usuario a eliminar
-        //Verificando que no existe depues de eliminar
         boolean noExisteDespuesDeEliminar= usuarioRepository.findById(idUsuario).isPresent();
         assertTrue(eliminarExistente);
         assertFalse(noExisteDespuesDeEliminar);
